@@ -1,4 +1,4 @@
-<nav class="header" >
+<nav class="header">
     <div class="header">
         <div class="header__logo">
             <a href="/" class="header__logo-link" style="text-decoration: none;">
@@ -187,6 +187,25 @@
             </a>
         </div>
 
+        {{#if user}}
+        <div class="header__profile">
+            <a href="/profile" class="header__profile-link" style="text-decoration: none;">
+                <div class="header__profile-item">
+                    <i class="header__profile-icon fa-solid fa-circle-user"></i>
+                </div>
+                <span class="header__profile-title">{{user.user_name}}</span>
+            </a>
+        </div>
+
+        <div class="header__logout">
+            <a href="/logout" class="header__logout-link" style="text-decoration: none;">
+                <div class="header__logout-item">
+                    <i class="header__logout-icon fa-solid fa-right-from-bracket"></i>
+                </div>
+                <span class="header__logout-title">Đăng xuất</span>
+            </a>
+        </div>
+        {{else}}
         <div class="header__register">
             <a href="/register" class="header__register-link" style="text-decoration: none;">
                 <div class="header__register-item">
@@ -204,5 +223,6 @@
                 <span class="header__login-title">Đăng nhập</span>
             </a>
         </div>
+        {{/if}}
     </div>
 </nav>
