@@ -93,11 +93,19 @@ app.get('/search', (req, res) => {
             console.error(err);
             res.status(500).send('Internal Server Error');
         } else {
-            console.log(queryRes.rows);
-            res.render('search', {
-                data: queryRes.rows,
-                value: searchQuery
-            });
+            console.log(req.session.user);
+            if (req.session && req.session.user) {
+                res.render('search', {
+                    user: req.session.user,
+                    data: queryRes.rows,
+                    value: searchQuery
+                });
+            } else {
+                res.render('search', {
+                    data: queryRes.rows,
+                    value: searchQuery
+                });
+            }
         }
     });
 })
@@ -169,7 +177,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/logout',(req,res)=>{
+app.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
