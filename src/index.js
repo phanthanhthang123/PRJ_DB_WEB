@@ -50,14 +50,13 @@ app.post('/register', async (req, res) => {
     const { fullname, email, password, password_confirmation } = req.body;
 
     if (fullname && email && password && password_confirmation) {
-        console.log(fullname, email, password, password_confirmation);
+        // console.log(fullname, email, password, password_confirmation);
         try {
             // Kiểm tra xem email đã tồn tại trong DB chưa
             const emailCheckQuery = 'SELECT * FROM users WHERE user_email = $1';
             const emailCheckResult = await db.query(emailCheckQuery, [email]);
             if (emailCheckResult.rows.length > 0) {
-                console.log('Tai khoan');
-                return res.render('register', { Message: 'Tài khoản email đã tồn tại' });
+                return res.status(400).render('register', { message: 'Tài khoản email đã tồn tại' });
             }
             else {
                 // Nếu email chưa tồn tại, tiến hành insert
@@ -66,22 +65,16 @@ app.post('/register', async (req, res) => {
                 values ($1,$2,$3);
                 `;
                 await db.query(queryText, [fullname, email, password]);
-                console.log('User registered successfully');
-                return res.render('register', { Message: 'Đăng kí tài khoản thành công,hãy đăng nhập để mua sắm' });
+                // console.log('User registered successfully');
+                return res.render('register', { message: 'Đăng kí tài khoản thành công,hãy đăng nhập để mua sắm' });
             }
         } catch (err) {
             console.error('Database error', err);
-            return res.render('register', { Message: 'Internal Server Error' });
+            return res.status(400).render('register', { message: 'Lỗi kết nối tới server' });
         }
 
     }
 });
-
-app.get('/login', (req, res) => {
-    res.render('login');
-})
-
-
 
 
 app.get('/search', (req, res) => {
@@ -124,6 +117,9 @@ async function getUserByEmail(email) {
         throw error; // Ném lỗi để xử lý bên ngoài
     }
 }
+app.get('/login', (req, res) => {
+    res.render('login');
+})
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -156,6 +152,11 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/logout', (req, res) => {
+    req.session.user = null;
+    res.redirect('/');
+})
+
 app.get('/', (req, res) => {
     db.query('select * from products', (err, result) => {
         if (err) {
@@ -177,9 +178,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/logout', (req, res) => {
-    res.redirect('/');
-})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

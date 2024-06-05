@@ -158,27 +158,30 @@ Validator({
         Validator.isConfirmed('#password_confirmation', function () {
             return document.querySelector('#form-1 #password').value;
         }, 'Mật khẩu nhập lại không chính xác')
-    ],
-    onSubmit: function (data) {
-        console.log(data);
-        fetch('/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
+    ]
+    // onSubmit: function (data) {
+    //     // console.log(data);
+    //     fetch('/register', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+    //         .then(data => {
+    //             // console.log(data.success);
+    //             if (data.success) {
+    //                 alert('Đăng ký thành công!');
+    //                 console.log('Success:', data);
+    //                 window.location.href = '/';
+    //             } else {
+    //                 alert('Đăng ký thất bại: ' + data.message); // Hiển thị thông điệp lỗi từ server
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             alert('Đăng ký thất bại!');
+    //             console.error('Error:', error);
+    //         });
+    // }
 });

@@ -1,12 +1,12 @@
 <div class="grid">
-    <div class="content-home" style="margin-bottom:12px">
+    {{!-- <div class="content-home" style="margin-bottom:12px">
         {{#if Message}}
         <div class="alert alert-danger">
             <h3>{{Message}}</h3>
         </div>
         {{/if}}
 
-    </div>
+    </div> --}}
 
     <div class="content-home form-content">
 
@@ -43,6 +43,11 @@
             </div>
 
             <button class="form-submit">Đăng ký</button>
+
+            {{#if message}}
+                <h1 style="font-size: 1.4rem; color:var(--primary-color);" >{{message}}</h1>
+            {{/if}}
+
         </form>
         <div class="form-message-global"></div>
     </div>
