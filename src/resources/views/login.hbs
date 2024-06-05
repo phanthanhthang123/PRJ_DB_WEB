@@ -1,0 +1,32 @@
+<div class="grid">
+    <div class="content-home form-content">
+        <form action="/login" method="post" class="form" id="form-1">
+            <h3 class="heading">Thành viên đăng nhập</h3>
+            <p class="desc">Cùng nhau mua sắm tại SHOP_PT ❤️</p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+
+            <button class="form-submit">Đăng nhập</button>
+
+            {{#if message}}
+                <h1 style="font-size: 1.4rem; color:var(--primary-color);" >{{message}}</h1>
+            {{/if}}
+
+
+        </form>
+        <div class="form-message-global"></div>
+    </div>
+</div>
