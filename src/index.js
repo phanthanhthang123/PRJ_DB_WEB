@@ -6,7 +6,16 @@ const handlebars = require('express-handlebars');
 const app = express();
 const port = 3000;
 
-const bcrypt = require('bcrypt');
+const session = require('express-session');
+
+app.use(session({
+    secret: 'your_secret_key', // Một chuỗi bí mật để mã hóa session ID
+    resave: false,             // Không lưu lại session nếu không có gì thay đổi
+    saveUninitialized: false,  // Không lưu session mới nếu chưa được sửa đổi
+    cookie: { secure: false }  // True nếu bạn đang sử dụng HTTPS
+}));
+
+// const user = null;
 
 // Sử dụng static middleware
 app.use(express.static(path.join(__dirname, 'public')));
@@ -79,7 +88,6 @@ app.get('/search', (req, res) => {
     const searchQuery = req.query.q;
     const queryText = 'SELECT * FROM products WHERE products.product_name ILIKE $1'
     const values = [`%${searchQuery}%`];
-
     db.query(queryText, values, (err, queryRes) => {
         if (err) {
             console.error(err);
@@ -129,11 +137,10 @@ app.post('/login', async (req, res) => {
             return res.status(401).render('login', { message: 'Mật khẩu không chính xác!' });
         }
         // Nếu mọi thứ ổn, chuyển hướng người dùng tới trang chủ
-        else{
-            return res.render('home',{
-                user: user,
-                // data: result.rows
-            });
+        else {
+            req.session.user = user;  // Lưu thông tin người dùng vào session
+            // console.log(req.session.user);
+            return res.redirect('/');
         }
     } catch (error) {
         console.error('Login error:', error);
@@ -162,6 +169,9 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/logout',(req,res)=>{
+    res.redirect('/');
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
