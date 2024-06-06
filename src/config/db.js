@@ -3,7 +3,7 @@ const pg = require("pg");
 const db = new pg.Client({
   user : 'postgres',
   host : 'localhost',
-  database : 'product',
+  database : 'store',
   password : 'thang01010610',
   port : 5432,
 });

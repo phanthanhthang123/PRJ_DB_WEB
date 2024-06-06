@@ -53,7 +53,7 @@ app.post('/register', async (req, res) => {
         // console.log(fullname, email, password, password_confirmation);
         try {
             // Kiểm tra xem email đã tồn tại trong DB chưa
-            const emailCheckQuery = 'SELECT * FROM users WHERE user_email = $1';
+            const emailCheckQuery = 'SELECT * FROM "NguoiDung" WHERE "TaiKhoan" = $1';
             const emailCheckResult = await db.query(emailCheckQuery, [email]);
             if (emailCheckResult.rows.length > 0) {
                 return res.status(400).render('register', { message: 'Tài khoản email đã tồn tại' });
@@ -61,7 +61,7 @@ app.post('/register', async (req, res) => {
             else {
                 // Nếu email chưa tồn tại, tiến hành insert
                 const queryText = `
-                insert into users(user_name,user_email,user_password)
+                insert into "NguoiDung"("TenND","TaiKhoan","MatKhau")
                 values ($1,$2,$3);
                 `;
                 await db.query(queryText, [fullname, email, password]);
@@ -79,12 +79,12 @@ app.post('/register', async (req, res) => {
 
 app.get('/search', (req, res) => {
     const searchQuery = req.query.q;
-    const queryText = 'SELECT * FROM products WHERE products.product_name ILIKE $1'
+    const queryText = 'SELECT * FROM "SanPham" WHERE "SanPham"."TenSP" ILIKE $1'
     const values = [`%${searchQuery}%`];
     db.query(queryText, values, (err, queryRes) => {
         if (err) {
             console.error(err);
-            res.status(500).send('Internal Server Error');
+            res.status(500).send('Lỗi kết nối tới Server');
         } else {
             console.log(req.session.user);
             if (req.session && req.session.user) {
@@ -104,7 +104,7 @@ app.get('/search', (req, res) => {
 })
 
 async function getUserByEmail(email) {
-    const query = 'SELECT * FROM users WHERE user_email = $1';
+    const query = 'SELECT * FROM "NguoiDung" nd WHERE nd."TaiKhoan" = $1';
     try {
         const result = await db.query(query, [email]);
         if (result.rows.length > 0) {
@@ -117,13 +117,14 @@ async function getUserByEmail(email) {
         throw error; // Ném lỗi để xử lý bên ngoài
     }
 }
+
 app.get('/login', (req, res) => {
     res.render('login');
 })
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log(email, password); // Xem dữ liệu gửi lên từ form
+    // console.log(email, password); // Xem dữ liệu gửi lên từ form
 
     if (!email || !password) {
         // Kiểm tra nếu email hoặc mật khẩu không được cung cấp
@@ -136,8 +137,9 @@ app.post('/login', async (req, res) => {
             return res.status(401).render('login', { message: 'Tài khoản không tồn tại!' });
         }
 
-        if (password != user.user_password) {
+        if (password != user.MatKhau) {
             // Nếu mật khẩu không khớp
+            
             return res.status(401).render('login', { message: 'Mật khẩu không chính xác!' });
         }
         // Nếu mọi thứ ổn, chuyển hướng người dùng tới trang chủ
@@ -158,7 +160,7 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    db.query('select * from products', (err, result) => {
+    db.query('select * from "SanPham" ', (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
