@@ -372,6 +372,7 @@
     color: var(--white-color);
 }
 
+.header__user,
 .header__register {
     height: 4rem;
     cursor: pointer;
@@ -383,28 +384,28 @@
     justify-content: center;
     align-items: center;
 }
-
+.header__user-link,
 .header__register-link {
     text-decoration: none;
 }
-
+.header__user-item,
 .header__register-item {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.header__user-icon,
 .header__register-icon {
     display: flex;
     font-size: 2rem;
     color: var(--white-color);
 }
-
+.header__user-title,
 .header__register-title {
     font-size: 1.2rem;
     color: var(--white-color);
 }
-
+.header__logout,
 .header__login {
     height: 4rem;
     cursor: pointer;
@@ -417,23 +418,24 @@
     align-items: center;
     margin-right: 15rem;
 }
-
+.header__logout-link,
 .header__login-link {
     text-decoration: none;
 }
 
+.header__logout-item,
 .header__login-item {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.header__logout-icon,
 .header__login-icon {
     display: flex;
     font-size: 2rem;
     color: var(--white-color);
 }
-
+.header__logout-title,
 .header__login-title {
     font-size: 1.2rem;
     color: var(--white-color);

@@ -1,0 +1,163 @@
+<div class="grid gird__main">
+    <div class="content-home">
+        <div class="user__main">
+            <div class="grid__column-2 user__navbar">
+
+                <div class="user__navbar-home user__active">
+                    <i class="user__navbar-home-icon fa-solid fa-house"></i>
+                    <span class="user__navbar-home-heading">Trang chủ</span>
+                </div>
+
+                <div class="user__navbar-home-shopify">
+                    <i class="user__navbar-home-shopify-icon fa-brands fa-shopify"></i>
+                    <span class="user__navbar-shopify-heading">Giỏ hàng</span>
+                </div>
+
+                <div class="user__navbar-home-history">
+                    <i class="user__navbar-home-history-icon fa-solid fa-timeline"></i>
+                    <span class="user__navbar-home-history-heading">Lịch sử mua hàng</span>
+                </div>
+
+
+                <div class="user__navbar-home-user">
+                    <i class="user__navbar-home-user-icon fa-regular fa-user"></i>
+                    <span class="user__navbar-home-user-heading">Tài khoản của bạn</span>
+                </div>
+
+                <div class="user__navbar-home-rectangle">
+                    <i class="user__navbar-home-rectangle-icon fa-regular fa-rectangle-list"></i>
+                    <span class="user__navbar-home-rectangle-heading">Tra cứu bảo hành</span>
+                </div>
+
+                <div class="user__navbar-home-phone">
+                    <i class="user__navbar-home-phone-icon fa-solid fa-phone"></i>
+                    <span class="user__navbar-home-phone-heading">Hỗ trợ</span>
+                </div>
+
+                <div class="user__navbar-home-square">
+                    <i class="user__navbar-home-square-icon fa-regular fa-share-from-square"></i>
+                    <span class="user__navbar-home-square-heading">Góp ý - phản hồi</span>
+                </div>
+
+
+            </div>
+
+            <div class="grid__column-8 user__content">
+                <div class="user__TaiKhoanCuaBan">
+                    <div class="user__TaiKhoanCuaBan-div">
+                        <img src="https://cellphones.com.vn/smember/_nuxt/img/Shipper_CPS3.77d4065.png" alt=""
+                            class="user__TaiKhoanCuaBan-img">
+                    </div>
+                    <span class="user__TaiKhoanCuaBan-name">{{user.TenND}}</span>
+                    <span class="user__TaiKhoanCuaBan-sodu">Số dư của bạn : {{user.SoDu}}00.000đ</span>
+                    <form action="/user" method="post" class="form__user-info">
+                        <div class="form-group-user">
+                            <input type="text" name="hovaten" class="form-group-user-name"
+                                placeholder="Họ Và Tên : {{user.TenND}}">
+                            <i class="form-group-user-icon form-group-user-icon-hovaten fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <div class="form-group-user">
+                            <input type="text" name="email" class="form-group-user-name"
+                                placeholder="Email : {{user.TaiKhoan}}">
+                            <i class="form-group-user-icon form-group-user-icon-email fa-solid fa-pen-to-square"></i>
+                        </div>
+
+                        {{#if user.GioiTinh}}
+                        <div class="form-group-user">
+                            <input type="text" name="gioitinh" class="form-group-user-name"
+                                placeholder="Giới Tính : {{user.GioiTinh}} ">
+                            <i class="form-group-user-icon form-group-user-icon-gioitinh fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{else}}
+                        <div class="form-group-user">
+                            <input type="text" name="gioitinh" class="form-group-user-name"
+                                placeholder="Giới Tính : Chưa cập nhật">
+                            <i class="form-group-user-icon form-group-user-icon-gioitinh fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{/if}}
+
+                        {{#if user.SoDienThoai}}
+                        <div class="form-group-user">
+                            <input type="text" name="sodienthoai" class="form-group-user-name"
+                                placeholder="Số Điện Thoại : {{user.SoDienThoai}} ">
+                            <i class="form-group-user-icon form-group-user-icon-sdt fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{else}}
+                        <div class="form-group-user">
+                            <input type="text" name="sodienthoai" class="form-group-user-name"
+                                placeholder="Số Điện Thoại : Chưa cập nhật ">
+                            <i class="form-group-user-icon form-group-user-icon-sdt fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{/if}}
+
+                        {{#if user.SinhNhat}}
+                        <div class="form-group-user">
+                            <input type="text" name="sinhnhat" class="form-group-user-name"
+                                placeholder="Sinh Nhật : {{user.SinhNhat}} ">
+                            <i class="form-group-user-icon form-group-user-icon-sinhnhat fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{else}}
+                        <div class="form-group-user">
+                            <input type="text" name="sinhnhat" class="form-group-user-name"
+                                placeholder="Sinh Nhật : Chưa cập nhật ">
+                            <i class="form-group-user-icon form-group-user-icon-sinhnhat fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{/if}}
+
+                        {{#if user.DiaChi}}
+                        <div class="form-group-user">
+                            <input type="text" name="diachi" class="form-group-user-name"
+                                placeholder="Địa Chỉ : {{user.DiaChi}} ">
+                            <i class="form-group-user-icon form-group-user-icon-diachi fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{else}}
+                        <div class="form-group-user">
+                            <input type="text" name="diachi" class="form-group-user-name"
+                                placeholder="Địa Chỉ : Chưa cập nhật ">
+                            <i class="form-group-user-icon form-group-user-icon-diachi fa-solid fa-pen-to-square"></i>
+                        </div>
+                        {{/if}}
+
+                        <div class="form-group-user">
+                            <button class="form-group-user-submit">Cập Nhật Thông Tin</button>
+                        </div>
+
+                        {{#if message}}
+                        <h1
+                            style="font-size: 1.4rem; color:var(--primary-color); display: flex;justify-content: center;">
+                            {{message}}
+                        </h1>
+                        {{/if}}
+                    </form>
+
+                </div>
+
+                <div class="user__TrangChu">
+                    <div class="user__TaiKhoanCuaBan-div">
+                        <img src="https://cellphones.com.vn/smember/_nuxt/img/Shipper_CPS3.77d4065.png" alt=""
+                            class="user__TaiKhoanCuaBan-img">
+                    </div>
+                    <span class="user__TaiKhoanCuaBan-name">{{user.TenND}}</span>
+                </div>
+                <div class="user__GioHang">
+
+                </div>
+                <div class="user__LichSuMuaHang">
+
+                </div>
+                <div class="user__TraCuuBaoHanh">
+
+                </div>
+                <div class="user__HoTro">
+
+                </div>
+                <div class="user__GopYPhanHoi">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/user.js" defer></script>

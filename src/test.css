@@ -1,0 +1,157 @@
+.user__main {
+    display: flex;
+    margin-top: 2rem;
+    /* justify-content: center;
+    align-items: center;
+    height: 100%; */
+}
+
+.gird__main {
+    background-color: #fff;
+}
+
+.user__navbar {
+    background-color: #F6FBFC;
+    margin-left: 0;
+    padding: 0.8rem 0;
+    position: relative;
+    min-height: 600px;
+}
+
+.user__navbar-home-square,
+.user__navbar-home-phone,
+.user__navbar-home-rectangle,
+.user__navbar-home-user,
+.user__navbar-home-history,
+.user__navbar-home-shopify,
+.user__navbar-home {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    height: 3.4rem;
+    padding: 0.8rem 0;
+    cursor: pointer;
+    margin-bottom: 2rem;
+
+}
+
+.user__navbar-home-square-icon,
+.user__navbar-home-phone-icon,
+.user__navbar-home-rectangle-icon,
+.user__navbar-home-user-icon,
+.user__navbar-home-history-icon,
+.user__navbar-home-shopify-icon,
+.user__navbar-home-icon {
+    font-size: 1.6rem;
+    padding: 0.4rem;
+    margin: 1.4rem 1.2rem 1.4rem 0;
+}
+
+.user__navbar-home-square-heading,
+.user__navbar-home-phone-heading,
+.user__navbar-home-rectangle-heading,
+.user__navbar-home-user-heading,
+.user__navbar-home-history-heading,
+.user__navbar-shopify-heading,
+.user__navbar-home-heading {
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.user__active span,
+.user__active {
+    border-color: #F54647;
+    color: var(--primary-color);
+    background-color: #FFEEEE;
+}
+
+/* ------------------------------- */
+.user__content-div {
+    min-height: 1000px;
+    min-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-group-user{
+    margin-top: 20px;
+    position: relative;
+}
+.user__GopYPhanHoi,
+.user__HoTro,
+.user__TraCuuBaoHanh,
+.user__LichSuMuaHang,
+.user__GioHang,
+.user__TaiKhoanCuaBan{
+    display: none;
+}
+.user__TaiKhoanCuaBan-div{
+    display: flex;
+    justify-content: center;
+}
+.user__TaiKhoanCuaBan-img{
+    display: flex;
+    justify-content: center;
+    height: 8rem;
+    width: 8rem;
+}
+.user__TaiKhoanCuaBan-sodu{
+    display: flex;
+    justify-content: center;
+    margin: 1.2rem 0;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.user__TaiKhoanCuaBan-name{
+    display: flex;
+    justify-content: center;
+    margin: 1.2rem 0;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.6rem;
+}
+.form__user-info{
+    justify-content: center;
+    width: 100%;
+}
+.form-group-user{
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.form-group-user-name{
+    border-radius: 3px;
+    color: #222;
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0 15px;
+    width: 100%;
+    border: 1px solid;
+    border-color: transparent transparent #999 transparent;
+    background-color: #fff;
+}
+.form-group-user-icon{
+    margin: auto;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.form-group-user-submit{
+    margin: 0 auto;
+    width: 100%;
+    color: var(--white-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    height: 4.3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 3rem;
+    cursor: pointer;
+}

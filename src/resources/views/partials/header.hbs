@@ -188,21 +188,21 @@
         </div>
 
         {{#if user}}
-        <div class="header__register">
-            <a href="#" class="header__register-link" style="text-decoration: none;">
-                <div class="header__register-item">
-                    <i class="header__register-icon fa-solid fa-circle-user"></i>
+        <div class="header__user">
+            <a href="user" class="header__user-link" style="text-decoration: none;">
+                <div class="header__user-item">
+                    <i class="header__user-icon fa-solid fa-circle-user"></i>
                 </div>
-                <span class="header__register-title">{{user.TenND}}</span>
+                <span class="header__user-title">{{user.TenND}}</span>
             </a>
         </div>
 
-        <div class="header__login">
-            <a href="/logout" class="header__login-link" style="text-decoration: none;">
-                <div class="header__login-item">
-                    <i class="header__login-icon fa-solid fa-right-from-bracket"></i>
+        <div class="header__logout">
+            <a href="/logout" class="header__logout-link" style="text-decoration: none;">
+                <div class="header__logout-item">
+                    <i class="header__logout-icon fa-solid fa-right-from-bracket"></i>
                 </div>
-                <span class="header__login-title">Đăng xuất</span>
+                <span class="header__logout-title">Đăng xuất</span>
             </a>
         </div>
         {{else}}

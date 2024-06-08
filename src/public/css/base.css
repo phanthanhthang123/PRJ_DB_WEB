@@ -54,6 +54,11 @@ html{
     margin-left: 6px;
     margin-right: 6px;
 }
+.grid__column-8{
+    width: 80%;
+    margin-left: 6px;
+    margin-right: 6px;
+}
 
 @keyframes fadeIn {
     0%{

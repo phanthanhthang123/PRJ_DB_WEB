@@ -139,13 +139,13 @@ app.post('/login', async (req, res) => {
 
         if (password != user.MatKhau) {
             // Nếu mật khẩu không khớp
-            
+
             return res.status(401).render('login', { message: 'Mật khẩu không chính xác!' });
         }
         // Nếu mọi thứ ổn, chuyển hướng người dùng tới trang chủ
         else {
             req.session.user = user;  // Lưu thông tin người dùng vào session
-            // console.log(req.session.user);
+            console.log(req.session.user);
             return res.redirect('/');
         }
     } catch (error) {
@@ -158,6 +158,63 @@ app.get('/logout', (req, res) => {
     req.session.user = null;
     res.redirect('/');
 })
+
+app.get('/user', (req, res) => {
+    res.render('user', {
+        user: req.session.user,
+        message: req.session.message
+    });
+    // Xóa thông báo sau khi đã hiển thị để không hiển thị lại lần nữa
+    delete req.session.message;
+})
+
+app.post('/user', async (req, res) => {
+    const { hovaten, email, gioitinh, sodienthoai, sinhnhat, diachi } = req.body;
+    const user = req.session.user;
+    let updates = [];
+    let updateFields = {}; // Để lưu trữ các trường được cập nhật
+
+    if (hovaten) {
+        updates.push(`"TenND" = '${hovaten}'`);
+        updateFields.TenND = hovaten;
+    }
+    if (email) {
+        updates.push(`"TaiKhoan" = '${email}'`);
+        updateFields.TaiKhoan = email;
+    }
+    if (gioitinh) {
+        updates.push(`"GioiTinh" = '${gioitinh}'`);
+        updateFields.GioiTinh = gioitinh;
+    }
+    if (sodienthoai) {
+        updates.push(`"SoDienThoai" = '${sodienthoai}'`);
+        updateFields.SoDienThoai = sodienthoai;
+    }
+    if (sinhnhat) {
+        updates.push(`"SinhNhat" = '${sinhnhat}'`);
+        updateFields.SinhNhat = sinhnhat;
+    }
+    if (diachi) {
+        updates.push(`"DiaChi" = '${diachi}'`);
+        updateFields.DiaChi = diachi;
+    }
+    if (updates.length > 0) {
+        const query = `UPDATE "NguoiDung" SET ${updates.join(', ')} WHERE "NguoiDung"."ID" = ${user.ID};`;
+        try {
+            await db.query(query); // Sử dụng truy vấn đã được tạo
+            // Cập nhật session user
+            Object.assign(req.session.user, updateFields);
+            req.session.message = 'Cập nhật thông tin thành công';
+        } catch (error) {
+            console.error('Error updating user:', error);
+            req.session.message = 'Cập nhật thông tin thất bại';
+        }
+        res.redirect('/user');
+    } else {
+        req.session.message = 'Không có thông tin nào để cập nhật';
+        res.redirect('/user');
+    }
+});
 
 app.get('/', (req, res) => {
     db.query('select * from "SanPham" ', (err, result) => {
