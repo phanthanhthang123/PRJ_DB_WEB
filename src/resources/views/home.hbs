@@ -204,4 +204,12 @@
     </div>
 </div>
 
- <script src="/js/main.js" defer></script>
+<div class="grid">
+    {{#if (equals user.ID 1)}}
+            <div class="admin__update">
+                <a href="/update-product-page" class="admin__update-link" style="text-decoration: none;">Update sản phẩm</a>
+            </div>
+    {{/if}}
+</div>
+
+<script src="/js/main.js" defer></script>

@@ -1,0 +1,24 @@
+.admin__update {
+    width: 100%;
+    background-color: var(--primary-color);
+    height: 4rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.admin__update-link {
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 4rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0px 53rem;
+}
+
+.admin__update:hover{
+    background-color: rgb(239, 105, 105);
+}
+.admin__update:hover .admin__update-link{
+    color: #735252;
+}
