@@ -167,13 +167,16 @@
         <div class="content__body">
             {{#each data}}
             <div class="content__body-box grid__column-1_8">
+                <div class="content__body-box-sale">
+                    <p class="content__body-box-text">Giảm {{this.GiaSale}}</p>
+                </div>
                 <a href="#" class="content__body-box-link" style="text-decoration: none;">
                     <div class="content__body-box-link-block">
                         <img src="{{this.Anh}}" alt="" class="content__body-box-img">
                     </div>
                     <h3 class="content__body-box-heading">{{this.TenSP}}</h3>
                     <div class="content__body-box-price">
-                        <p class="content__body-box-price-show">{{this.GiaMoi}}0.000₫</p>
+                        <p class="content__body-box-price-show">{{this.GiaBan}}0.000₫</p>
                         <div class="content__body-box-price-through">{{this.GiaGoc}}0.900₫</div>
                     </div>
                     <div class="content__body-box-smem">
@@ -185,6 +188,11 @@
                             kỳ hạn 3-6 tháng</p>
                     </div>
                 </a>
+                <button class="add-to-cart-btn" data-id="{{this.ID}}">
+                    Thêm vào giỏ hàng
+                    <i class="add-to-cart-btn-icon fa-solid fa-cart-shopping"></i>
+                </button>
+
                 <div class="content__body-box-review">
                     <div class="content__body-box-review-rating">
                         <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
@@ -206,9 +214,9 @@
 
 <div class="grid">
     {{#if (equals user.ID 1)}}
-            <div class="admin__update">
-                <a href="/update-product-page" class="admin__update-link" style="text-decoration: none;">Update sản phẩm</a>
-            </div>
+    <div class="admin__update">
+        <a href="/update-product-page" class="admin__update-link" style="text-decoration: none;">Update sản phẩm</a>
+    </div>
     {{/if}}
 </div>
 

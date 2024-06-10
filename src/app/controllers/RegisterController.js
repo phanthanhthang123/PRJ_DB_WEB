@@ -13,7 +13,7 @@ class registercontroller {
             // console.log(fullname, email, password, password_confirmation);
             try {
                 // Kiểm tra xem email đã tồn tại trong DB chưa
-                const emailCheckQuery = 'SELECT * FROM "NguoiDung" WHERE "TaiKhoan" = $1';
+                const emailCheckQuery = 'SELECT * FROM "KhachHang" WHERE "Email" = $1';
                 const emailCheckResult = await db.query(emailCheckQuery, [email]);
                 if (emailCheckResult.rows.length > 0) {
                     return res.status(400).render('register', { message: 'Tài khoản email đã tồn tại' });
@@ -21,7 +21,7 @@ class registercontroller {
                 else {
                     // Nếu email chưa tồn tại, tiến hành insert
                     const queryText = `
-                    insert into "NguoiDung"("TenND","TaiKhoan","MatKhau")
+                    insert into "KhachHang"("TenKH","Email","MatKhau")
                     values ($1,$2,$3);
                     `;
                     await db.query(queryText, [fullname, email, password]);

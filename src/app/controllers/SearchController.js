@@ -4,7 +4,7 @@ class SearchController {
     //[Get] /search
     search(req, res) {
         const searchQuery = req.query.q;
-        const queryText = 'SELECT * FROM "SanPham" WHERE "SanPham"."TenSP" ILIKE $1'
+        const queryText = 'SELECT * FROM "SanPhamBan" WHERE "SanPhamBan"."TenSP" ILIKE $1'
         const values = [`%${searchQuery}%`];
         db.query(queryText, values, (err, queryRes) => {
             if (err) {

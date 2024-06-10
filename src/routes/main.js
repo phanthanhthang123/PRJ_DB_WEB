@@ -5,8 +5,11 @@ const registerRouter = require('./register');
 const logoutRouter = require('./logout');
 const userRouter = require('./user');
 const homeRouter = require('./home');
+const cartRouter = require('./cart');
 
 function route(app) {
+    app.use('/cart',cartRouter);
+
     app.use('/search', searchRouter);
 
     app.use('/login', loginRouter);

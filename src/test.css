@@ -75,29 +75,34 @@
     align-items: center;
     justify-content: center;
 }
-.form-group-user{
+
+.form-group-user {
     margin-top: 20px;
     position: relative;
 }
+
 .user__GopYPhanHoi,
 .user__HoTro,
 .user__TraCuuBaoHanh,
 .user__LichSuMuaHang,
 .user__GioHang,
-.user__TaiKhoanCuaBan{
+.user__TaiKhoanCuaBan {
     display: none;
 }
-.user__TaiKhoanCuaBan-div{
+
+.user__TaiKhoanCuaBan-div {
     display: flex;
     justify-content: center;
 }
-.user__TaiKhoanCuaBan-img{
+
+.user__TaiKhoanCuaBan-img {
     display: flex;
     justify-content: center;
     height: 8rem;
     width: 8rem;
 }
-.user__TaiKhoanCuaBan-sodu{
+
+.user__TaiKhoanCuaBan-sodu {
     display: flex;
     justify-content: center;
     margin: 1.2rem 0;
@@ -106,7 +111,7 @@
     font-size: 1.2rem;
 }
 
-.user__TaiKhoanCuaBan-name{
+.user__TaiKhoanCuaBan-name {
     display: flex;
     justify-content: center;
     margin: 1.2rem 0;
@@ -114,18 +119,21 @@
     text-align: center;
     font-size: 1.6rem;
 }
-.form__user-info{
+
+.form__user-info {
     justify-content: center;
     width: 100%;
 }
-.form-group-user{
+
+.form-group-user {
     margin: 0 auto;
     width: 60%;
     margin-bottom: 1.2rem;
     display: flex;
     justify-content: space-between;
 }
-.form-group-user-name{
+
+.form-group-user-name {
     border-radius: 3px;
     color: #222;
     font-size: 16px;
@@ -136,13 +144,14 @@
     border-color: transparent transparent #999 transparent;
     background-color: #fff;
 }
-.form-group-user-icon{
+
+.form-group-user-icon {
     margin: auto;
     cursor: pointer;
     font-size: 1.4rem;
 }
 
-.form-group-user-submit{
+.form-group-user-submit {
     margin: 0 auto;
     width: 100%;
     color: var(--white-color);
@@ -154,4 +163,111 @@
     border-radius: 5px;
     margin-top: 3rem;
     cursor: pointer;
+}
+
+.content__body-box-sale {
+    background-image: url('../src/public/img/sale.png');
+    height: 24px;
+    border-radius: 10px;
+    width: 80px;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+.content__body-box-text {
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 5px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* ----------------------------------------------------------- */
+.user__TrangChu-div {
+    display: flex;
+}
+
+.user__Trangchu--tt-user {
+    display: flex;
+}
+
+.user__Trangchu--tt-user-img {
+    height: 71px;
+    width: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid #BA579B;
+}
+
+.user__TaiKhoanCuaBan-img-x {
+    height: 50px;
+    width: 50px;
+}
+
+.user__Trangchu--tt-header {
+    margin-left: 2rem;
+}
+
+.user__Trangchu--tt-header-name {
+    display: block;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #A83288;
+    padding: 0.2rem 0;
+}
+
+.user__Trangchu--tt-header-sdt {
+    display: block;
+    color: #637381;
+    font-size: 14px;
+    padding: 0.2rem 0 0.2rem 0;
+}
+
+.user__Trangchu--tt-header-snull {
+    padding: 0.1rem 0.2rem;
+}
+
+.user__Trangchu--tt-header-snulll {
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 0 0 0 .5px #A83288;
+    display: flex;
+    font-size: 14px;
+    line-height: 15px;
+    padding: 2px 5px;
+    text-transform: uppercase;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #A83288;
+    margin: 0;
+}
+
+.user__Trangchu--homepage-menu {
+    display: flex;
+    background-color: #F6FBFC;
+    border-radius: 10px;
+    margin-top: 3rem;
+}
+
+.user__Trangchu--homepage-menu-dathang {
+    border-left: 1px solid #000;
+}
+
+.item__content-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.item__content-text {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
 }

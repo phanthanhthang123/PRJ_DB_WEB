@@ -1,7 +1,7 @@
 const db = require('../../config/db');
 
 async function getUserByEmail(email) {
-    const query = 'SELECT * FROM "NguoiDung" nd WHERE nd."TaiKhoan" = $1';
+    const query = 'SELECT * FROM "KhachHang" kh WHERE kh."Email" = $1';
     try {
         const result = await db.query(query, [email]);
         if (result.rows.length > 0) {

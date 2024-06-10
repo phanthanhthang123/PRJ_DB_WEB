@@ -17,17 +17,20 @@ class UserController {
     //post /user
     async postuser(req, res) {
         const { hovaten, email, gioitinh, sodienthoai, sinhnhat, diachi } = req.body;
+        console.log(hovaten, email, gioitinh, sodienthoai, sinhnhat, diachi);
         const user = req.session.user;
+
+        console.log(user);
         let updates = [];
         let updateFields = {}; // Để lưu trữ các trường được cập nhật
 
         if (hovaten) {
-            updates.push(`"TenND" = '${hovaten}'`);
-            updateFields.TenND = hovaten;
+            updates.push(`"TenKH" = '${hovaten}'`);
+            updateFields.TenKH = hovaten;
         }
         if (email) {
-            updates.push(`"TaiKhoan" = '${email}'`);
-            updateFields.TaiKhoan = email;
+            updates.push(`"Email" = '${email}'`);
+            updateFields.Email = email;
         }
         if (gioitinh) {
             updates.push(`"GioiTinh" = '${gioitinh}'`);
@@ -46,11 +49,12 @@ class UserController {
             updateFields.DiaChi = diachi;
         }
         if (updates.length > 0) {
-            const query = `UPDATE "NguoiDung" SET ${updates.join(', ')} WHERE "NguoiDung"."ID" = ${user.ID};`;
+            const query = `UPDATE "KhachHang" SET ${updates.join(', ')} WHERE "KhachHang"."ID" = ${user.ID};`;
             try {
                 await db.query(query); // Sử dụng truy vấn đã được tạo
                 // Cập nhật session user
                 Object.assign(req.session.user, updateFields);
+    
                 req.session.message = 'Cập nhật thông tin thành công';
             } catch (error) {
                 console.error('Error updating user:', error);

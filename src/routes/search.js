@@ -4,7 +4,7 @@ const router = express.Router();
 
 const searchController = require('../app/controllers/SearchController');
 
-router.use('/:slug',searchController.error);
-router.use('/',searchController.search);
+router.get('/:slug',searchController.error);
+router.get('/',searchController.search);
 
 module.exports = router;

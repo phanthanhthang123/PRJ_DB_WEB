@@ -3,7 +3,7 @@ const db = require('../../config/db');
 
 class HomeController{
     async gethome(req,res){
-        await db.query('select * from "SanPham" ', (err, result) => {
+        await db.query('select * from "SanPhamBan" ', (err, result) => {
             if (err) {
                 console.error(err);
                 res.status(500).send('Internal Server Error');
