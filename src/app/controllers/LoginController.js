@@ -30,7 +30,7 @@ class LoginController {
             // Nếu mọi thứ ổn, chuyển hướng người dùng tới trang chủ
             else {
                 req.session.user = user;  // Lưu thông tin người dùng vào session
-                console.log(req.session.user);
+                console.log(req.session);
                 return res.redirect('/');
             }
         } catch (error) {

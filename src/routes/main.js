@@ -8,6 +8,7 @@ const homeRouter = require('./home');
 const cartRouter = require('./cart');
 
 function route(app) {
+    
     app.use('/cart',cartRouter);
 
     app.use('/search', searchRouter);

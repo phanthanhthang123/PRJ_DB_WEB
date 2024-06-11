@@ -3,8 +3,30 @@ const db = require('../../config/db');
 
 class UserController {
     //[get]
-    getuser(req, res) {
+    async getuser(req, res) {
+        var KhachHang = req.session.user;
+        var KhachHangID = null;
+        if(KhachHang){
+            KhachHangID =KhachHang.ID;
+        }
+        const query = `
+            SELECT sp."ID" as "SanPhamID", gh."KhachHangID", sp."TenSP", sp."GiaGoc",
+            ROUND(sp."GiaGoc" * (1 - sp."GiaSale" / 100), 2) AS "GiaBan",gh."SoLuong",
+            sp."MoTaSP", sp."Anh"
+            FROM "GioHang" gh
+            JOIN "KhachHang" kh ON (gh."KhachHangID" = kh."ID")
+            JOIN "SanPham" sp ON (sp."ID" = gh."SanPhamID")
+            WHERE kh."ID" = $1;
+        `;
+        if(KhachHangID){
+            const { rows } = await db.query(query, [KhachHangID]);
+            if(rows){
+                req.session.CartItems = rows;
+            }
+        }
+
         res.render('user', {
+            Items : req.session.CartItems,
             user: req.session.user,
             message: req.session.message
         });

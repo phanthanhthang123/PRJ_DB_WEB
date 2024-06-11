@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             temp = GioHang;
         })
     }
+
     if (LichSuMuaHang) {
         LichSuMuaHang.addEventListener('click', () => {
             LichSuMuaHang.classList.add('user__active');

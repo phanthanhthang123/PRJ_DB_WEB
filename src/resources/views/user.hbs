@@ -8,7 +8,7 @@
                     <span class="user__navbar-home-heading">Trang chủ</span>
                 </div>
 
-                <div class="user__navbar-home-shopify">
+                <div class="user__navbar-home-shopify" id="cartLink">
                     <i class="user__navbar-home-shopify-icon fa-brands fa-shopify"></i>
                     <span class="user__navbar-shopify-heading">Giỏ hàng</span>
                 </div>
@@ -43,6 +43,10 @@
             </div>
 
             <div class="grid__column-8 user__content">
+                {{!-- <div id="dynamicContent">
+                    <!-- Nội dung của trang user sẽ được tải ở đây -->
+                </div> --}}
+
                 <div class="user__TaiKhoanCuaBan">
                     <div class="user__TaiKhoanCuaBan-div">
                         <img src="https://cellphones.com.vn/smember/_nuxt/img/Shipper_CPS3.77d4065.png" alt=""
@@ -129,7 +133,6 @@
                         </h1>
                         {{/if}}
                     </form>
-
                 </div>
 
                 <div class="user__TrangChu">
@@ -139,11 +142,37 @@
                     </div>
                     <span class="user__TaiKhoanCuaBan-name">{{user.TenKH}}</span>
                 </div>
+
                 <div class="user__GioHang">
+                    <div class="cart-container">
+                        <h1 class="cart-container-heading">Giỏ Hàng Của Bạn</h1>
+                        {{#if Items.length}}
+                        <div class="cart-container-product">
+                            {{#each Items}}
+                            <div class="cart-items">
+                                <div class="cart-item-image-div">
+                                    <a href="/sanpham-{{SanPhamID}}" style="text-decoration: none;">
+                                        <img src="{{Anh}}" alt="" class="cart-item-image" data-id="{{SanPhamID}}">
+                                    </a>
+                                </div>
+                                <div class="cart-item-details">
+                                    <h3 class="cart-item-details-name">{{TenSP}}</h3>
+                                    <p class="cart-item-details-price">Giá:{{GiaBan}}0.000đ</p>
+                                    <p class="cart-item-details-quantity">Số lượng:{{SoLuong}} </p>
+                                    <p class="cart-item-details-des">Mô tả:{{MoTaSP}}</p>
+                                </div>
 
+                                <button class="remove-from-cart-btn" data-id="{{SanPhamID}}" >Xoa San Pham </button>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{else}}
+                        <p>Giỏ hàng của bạn hiện đang trống.</p>
+                        {{/if}}
+                    </div>
                 </div>
-                <div class="user__LichSuMuaHang">
 
+                <div class="user__LichSuMuaHang">
                 </div>
                 <div class="user__TraCuuBaoHanh">
 
@@ -156,8 +185,8 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
+<script src="/js/cartremove.js" defer></script>
 <script src="/js/user.js" defer></script>
