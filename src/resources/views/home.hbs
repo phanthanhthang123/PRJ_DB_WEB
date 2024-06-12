@@ -120,8 +120,50 @@
             </div>
             <span class="productsSale__weekend-time-seconds" id="seconds"></span>
         </div>
-        <div class="productsSale__products" style="height: 100px; background-color: #f83f5f;">
+        <div class="productsSale__products" style="background-color: #f83f5f;display: flex;flex-wrap: wrap;margin-top: 3rem;">
+            {{#each productsale}}
+            <div class="content__body-box grid__column-1_8" style="background: var(--white-color);">
+                <div class="content__body-box-sale">
+                    <p class="content__body-box-text">Giảm {{GiaSale}} %</p>
+                </div>
+                <a href="#" class="content__body-box-link" style="text-decoration: none;">
+                    <div class="content__body-box-link-block">
+                        <img src="{{Anh}}" alt="" class="content__body-box-img">
+                    </div>
+                    <h3 class="content__body-box-heading">{{TenSP}}</h3>
+                    <div class="content__body-box-price">
+                        <p class="content__body-box-price-show">{{GiaBan}}0.000₫</p>
+                        <div class="content__body-box-price-through">{{GiaGoc}}0.900₫</div>
+                    </div>
+                    <div class="content__body-box-smem">
+                        Smember giảm thêm đến
+                        <span>136.000₫</span>
+                    </div>
+                    <div class="content__body-box-promotion">
+                        <p class="content__body-box-promotion-des">Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng
+                            kỳ hạn 3-6 tháng</p>
+                    </div>
+                </a>
+                <button class="add-to-cart-btn" data-id="{{this.ID}}">
+                    Thêm vào giỏ hàng
+                    <i class="add-to-cart-btn-icon fa-solid fa-cart-shopping"></i>
+                </button>
 
+                <div class="content__body-box-review">
+                    <div class="content__body-box-review-rating">
+                        <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
+                        <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
+                        <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
+                        <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
+                        <i class="content__body-box-review-rating-icon fa-solid fa-star"></i>
+                    </div>
+                    <div class="content__body-box-review-wish">
+                        <span class="content__body-box-review-heading">Yêu thích</span>
+                        <i class="content__body-box-review-icon fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
         </div>
     </div>
 </div>

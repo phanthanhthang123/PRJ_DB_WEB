@@ -1,27 +1,38 @@
-
 const db = require('../../config/db');
 
-class HomeController{
-    async gethome(req,res){
-        await db.query('select * from "SanPhamBan" ', (err, result) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send('Internal Server Error');
-            } else {
-                req.session.product = result.rows;
-                // console.log(req.session); // Kiểm tra xem bên trong req.session có gì
-                if (req.session && req.session.user) {
+class HomeController {
+    async gethome(req, res) {
+        try {
+            const resultSale = await db.query('SELECT * FROM "SanPhamSale"');
+            req.session.productsale = resultSale.rows;
+
+            const resultBan = await db.query('SELECT * FROM "SanPhamBan"');
+            req.session.product = resultBan.rows;
+
+            if (req.session && req.session.user) {
+                if (req.session.productsale && req.session.productsale.length > 0) {
                     res.render('home', {
                         user: req.session.user,
-                        data: result.rows
+                        data: resultBan.rows,
+                        productsale: resultSale.rows
                     });
                 } else {
                     res.render('home', {
-                        data: result.rows
+                        user: req.session.user,
+                        data: resultBan.rows,
+                        message: 'Không có sản phẩm nào được giảm giá'
                     });
                 }
+            } else {
+                res.render('home', {
+                    data: resultBan.rows,
+                    productsale: resultSale.rows
+                });
             }
-        });
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+        }
     }
 }
 
