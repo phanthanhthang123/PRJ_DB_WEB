@@ -1050,3 +1050,137 @@
 .cart-item-details-des {
   font-weight: 500;
   margin: 0; }
+
+.remove-from-cart-btn-div {
+  display: flex;
+  align-items: center; }
+
+.remove-from-cart-btn {
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 500; }
+
+.remove-from-cart-btn:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+.user__TrangChu-div {
+  display: flex; }
+
+.user__Trangchu--tt-user {
+  display: flex; }
+
+.user__Trangchu--tt-user-img {
+  height: 71px;
+  width: 71px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #BA579B; }
+
+.user__TaiKhoanCuaBan-img-x {
+  height: 50px;
+  width: 50px; }
+
+.user__Trangchu--tt-header {
+  margin-left: 2rem; }
+
+.user__Trangchu--tt-header-name {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #A83288;
+  padding: 0.2rem 0; }
+
+.user__Trangchu--tt-header-sdt {
+  display: block;
+  color: #637381;
+  font-size: 14px;
+  padding: 0.2rem 0 0.2rem 0; }
+
+.user__Trangchu--tt-header-snull {
+  padding: 0.1rem 0.2rem; }
+
+.user__Trangchu--tt-header-snulll {
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 0 0 0 .5px #A83288;
+  display: flex;
+  font-size: 14px;
+  line-height: 15px;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #A83288;
+  margin: 0; }
+
+.user__Trangchu--homepage-menu {
+  display: flex;
+  background-color: #F6FBFC;
+  border-radius: 10px;
+  margin-top: 3rem; }
+
+.user__Trangchu--homepage-menu-dathang {
+  border-left: 1px solid #000; }
+
+.item__content-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px; }
+
+.item__content-text {
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px; }
+
+.user__Trangchu-qr {
+  background-color: #F6FBFC; }
+
+.user__Trangchu-qr-header {
+  display: flex;
+  justify-content: center; }
+
+.user__Trangchu-qr-header-img-div {
+  display: flex;
+  justify-content: center; }
+
+.user__Trangchu-qr-heading {
+  font-size: 1.4rem;
+  color: #A83288;
+  margin-left: 2rem; }
+
+.user__Trangchu-qr-header-img {
+  width: 350px;
+  height: 100px; }
+
+.user__Trangchu-qr-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  align-items: center; }
+
+.user__Trangchu-qr-time-heading {
+  color: var(--text-color);
+  display: block;
+  margin-left: 2rem; }
+
+.user__Trangchu-qr-time-button-div {
+  margin-left: 2rem; }
+
+.user__Trangchu-qr-time-button {
+  height: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 2rem;
+  cursor: pointer; }
+
+.user__Trangchu-qr-time-button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color); }

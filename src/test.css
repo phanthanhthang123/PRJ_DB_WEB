@@ -185,6 +185,7 @@
 }
 
 /* ----------------------------------------------------------- */
+
 .user__TrangChu-div {
     display: flex;
 }
@@ -272,47 +273,108 @@
     padding-top: 10px;
 }
 
+.user__Trangchu-qr {
+    background-color: #F6FBFC;
+}
 
+.user__Trangchu-qr-header {
+    display: flex;
+    justify-content: center;
+}
+
+.user__Trangchu-qr-header-img-div {
+    display: flex;
+    justify-content: center;
+}
+
+.user__Trangchu-qr-heading {
+    font-size: 1.4rem;
+    color: #A83288;
+    margin-left: 2rem;
+}
+
+.user__Trangchu-qr-header-img {
+    width: 350px;
+    height: 100px;
+}
+
+.user__Trangchu-qr-time{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: center;
+
+}
+.user__Trangchu-qr-time-heading{
+    color: var(--text-color);
+    display: block;
+    margin-left: 2rem;
+}
+.user__Trangchu-qr-time-button-div{
+    margin-left: 2rem;
+}
+.user__Trangchu-qr-time-button{
+    height: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+.user__Trangchu-qr-time-button:hover{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
 
 /* ----------------------------------------------- */
-.cart-container{
+.cart-container {
     margin-left: 4rem;
 }
-.cart-container-heading{
+
+.cart-container-heading {
     margin: 1.2rem 0 0 0;
     color: var(--text-color);
 }
-.cart-items{
+
+.cart-items {
     margin-top: 1.2rem;
     display: flex;
 }
-.cart-item-image-div{
+
+.cart-item-image-div {
     height: 70px;
     width: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.cart-item-image{
+
+.cart-item-image {
     width: 60px;
     height: 60px;
     border: 1px solid #000;
     border-radius: 5px;
 }
-.cart-item-details{
+
+.cart-item-details {
     padding: 0.4rem;
     width: 100%;
 }
-.cart-item-details-name{
+
+.cart-item-details-name {
     margin: 0;
     color: var(--text-color);
 }
-.cart-item-details-price{
+
+.cart-item-details-price {
     margin: 0;
 }
-.cart-item-details-quantity{
+
+.cart-item-details-quantity {
     margin: 0;
 }
-.cart-item-details-des{
+
+.cart-item-details-des {
     margin: 0;
 }

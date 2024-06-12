@@ -136,11 +136,86 @@
                 </div>
 
                 <div class="user__TrangChu">
-                    <div class="user__TaiKhoanCuaBan-div">
-                        <img src="https://cellphones.com.vn/smember/_nuxt/img/Shipper_CPS3.77d4065.png" alt=""
-                            class="user__TaiKhoanCuaBan-img">
+                    {{#if user}}
+                    <div class="user__TrangChu-div">
+                        <div class="user__Trangchu-tt grid__column-5">
+                            <div class="user__Trangchu--tt-user">
+                                <div class="user__Trangchu--tt-user-img">
+                                    <img src="https://cdn2.cellphones.com.vn/50x50,webp,q100/media/wysiwyg/Shipper_CPS3_1.png"
+                                        alt="" class=".user__TaiKhoanCuaBan-img-x">
+                                </div>
+                                <div class="user__Trangchu--tt-header">
+                                    <span class="user__Trangchu--tt-header-name">
+                                        {{user.TenKH}}
+                                    </span>
+                                    <span class="user__Trangchu--tt-header-sdt">
+                                        {{user.SoDienThoai}}
+                                    </span>
+                                    <div class="user__Trangchu--tt-header-snull">
+                                        <p class="user__Trangchu--tt-header-snulll">SNULL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user__Trangchu--homepage-menu">
+                                <div class="user__Trangchu--homepage-menu-donhang grid__column-5">
+                                    <p class="item__content-title">
+                                        0
+                                    </p>
+                                    <p class="item__content-text">
+                                        đơn hàng
+                                    </p>
+                                </div>
+                                <div class="user__Trangchu--homepage-menu-dathang grid__column-5">
+                                    <p class="item__content-title">
+                                        0đ
+                                    </p>
+                                    <p class="item__content-text">
+                                        Tổng tiền tích lũy
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user__Trangchu-qr grid__column-5">
+                            <div class="user__Trangchu-qr-header">
+                                <p class="user__Trangchu-qr-heading">Đưa mã này cho nhân viên để hưởng ưu đãi Smember
+                                </p>
+                            </div>
+                            <div class="user__Trangchu-qr-header-img-div">
+                                <img src="https://png.pngtree.com/png-clipart/20220402/ourmid/pngtree-black-and-white-icons-of-barcode-numbers-png-image_4520081.png"
+                                    alt="" class="user__Trangchu-qr-header-img">
+                            </div>
+                            <div class="user__Trangchu-qr-time">
+                                <p class="user__Trangchu-qr-time-heading">Mã sẽ thay đổi sau: </p>
+                                <div class="user__Trangchu-qr-time-button-div">
+                                    <button class="user__Trangchu-qr-time-button">
+                                        Chuyển sang QRCode
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="user__TaiKhoanCuaBan-name">{{user.TenKH}}</span>
+                    {{else}}
+                    <div class="user__TrangChu-div">
+                        <div class="user__Trangchu-tt grid__column-5">
+                            <div class="user__Trangchu--tt-user">
+                                <div class="user__Trangchu--tt-user-img">
+                                    <img src="https://cdn2.cellphones.com.vn/50x50,webp,q100/media/wysiwyg/Shipper_CPS3_1.png"
+                                        alt="" class=".user__TaiKhoanCuaBan-img-x">
+                                </div>
+                                <div class="user__Trangchu--tt-header">
+                                    <span class="user__Trangchu--tt-header-name">
+                                        Không có thông tin của khách hàng
+                                    </span>
+                                    <div class="user__Trangchu--tt-header-snull">
+                                        <p class="user__Trangchu--tt-header-snulll">SNULL</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{!-- contain-bottom --}}
                 </div>
 
                 <div class="user__GioHang">
@@ -161,8 +236,9 @@
                                     <p class="cart-item-details-quantity">Số lượng:{{SoLuong}} </p>
                                     <p class="cart-item-details-des">Mô tả:{{MoTaSP}}</p>
                                 </div>
-
-                                <button class="remove-from-cart-btn" data-id="{{SanPhamID}}" >Xoa San Pham </button>
+                                <div class="remove-from-cart-btn-div">
+                                    <button class="remove-from-cart-btn" data-id="{{SanPhamID}}">Xoa San Pham </button>
+                                </div>
                             </div>
                             {{/each}}
                         </div>
