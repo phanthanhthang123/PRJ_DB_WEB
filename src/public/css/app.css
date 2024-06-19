@@ -991,16 +991,20 @@
   background-color: var(--primary-color);
   height: 24px;
   border-radius: 10px;
-  width: 80px;
+  width: 90px;
   margin-top: -8px;
-  margin-left: -8px; }
+  margin-left: -8px;
+  padding: 0 0.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: center; }
 
 .content__body-box-text {
   display: inline-block;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
-  margin: 5px 0 0;
+  margin: auto 0;
   text-align: center;
   width: 100%; }
 
